@@ -6,7 +6,7 @@ namespace BattlEye\GlobalBan\Exceptions;
 
 use Exception;
 
-final class SocketNotReceived extends Exception
+final class SocketDataNotReceived extends Exception
 {
     //
 }

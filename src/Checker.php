@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace BattlEye\GlobalBan;
 
 use BattlEye\GlobalBan\Exceptions\HostnameNotResolved;
+use BattlEye\GlobalBan\Exceptions\SocketDataNotReceived;
 use BattlEye\GlobalBan\Exceptions\SocketDataNotSent;
 use BattlEye\GlobalBan\Exceptions\SocketNotCreated;
-use BattlEye\GlobalBan\Exceptions\SocketNotReceived;
 use BattlEye\GlobalBan\ValueObjects\GlobalBan;
 use BattlEye\Guid\Guid;
 use Socket;
@@ -26,7 +26,7 @@ final readonly class Checker implements Contracts\Checker
      * @throws HostnameNotResolved
      * @throws SocketDataNotSent
      * @throws SocketNotCreated
-     * @throws SocketNotReceived
+     * @throws SocketDataNotReceived
      */
     public function check(Guid $guid): GlobalBan
     {
@@ -45,7 +45,7 @@ final readonly class Checker implements Contracts\Checker
      * @throws HostnameNotResolved
      * @throws SocketDataNotSent
      * @throws SocketNotCreated
-     * @throws SocketNotReceived
+     * @throws SocketDataNotReceived
      */
     private function sendData(string $data): string
     {
@@ -72,7 +72,7 @@ final readonly class Checker implements Contracts\Checker
             /** @var string $receivedData */
             if ($receivedBytes === false) {
                 $error = socket_last_error();
-                throw new SocketNotReceived(socket_strerror($error), $error);
+                throw new SocketDataNotReceived(socket_strerror($error), $error);
             }
 
             return mb_substr($receivedData, 4);
