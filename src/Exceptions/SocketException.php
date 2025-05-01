@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace BattlEye\GlobalBan\Exceptions;
 
-final class SocketDataNotSent extends SocketException
+use RuntimeException;
+
+abstract class SocketException extends RuntimeException
 {
     //
 }

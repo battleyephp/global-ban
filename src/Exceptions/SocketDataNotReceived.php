@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace BattlEye\GlobalBan\Exceptions;
 
-use Exception;
-
-final class SocketDataNotReceived extends Exception
+final class SocketDataNotReceived extends SocketException
 {
     //
 }
