@@ -13,7 +13,7 @@ You can check if any GUID is banned globally.
 
 ## Installation
 
-> **Requires [PHP 8.2+](https://php.net/releases/)**
+> **Requires [PHP 8.3+](https://php.net/releases/)**
 
 > **Requires [ext-sockets](https://www.php.net/manual/en/book.sockets.php)**
 
